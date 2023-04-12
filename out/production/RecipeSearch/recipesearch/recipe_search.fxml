@@ -25,7 +25,7 @@
                <children>
                   <Label layoutX="32.0" layoutY="100.0" prefHeight="68.0" prefWidth="196.0" text="Hitta ett recept som passar genom att ändra i inställningar nedanför" textAlignment="CENTER" wrapText="true" />
                   <Label layoutX="21.0" layoutY="192.0" text="Huvudingrediens" />
-                  <RadioButton fx:id="Alla" layoutX="121.0" layoutY="278.0" mnemonicParsing="false" text="Alla" />
+                  <RadioButton fx:id="alla" layoutX="121.0" layoutY="278.0" mnemonicParsing="false" text="Alla" />
                   <Label layoutX="67.0" layoutY="390.0" text="Maxpris:" />
                   <Label fx:id="timeLabel" layoutX="189.0" layoutY="453.0" text="20 minuter" />
                   <Label layoutX="92.0" layoutY="232.0" prefWidth="30.0" text="Kök" />
@@ -45,10 +45,10 @@
                <children>
                   <ScrollPane layoutX="8.0" layoutY="7.0" prefHeight="484.0" prefWidth="501.0">
                      <content>
-                        <FlowPane fx:id="recipeListFlowpane" prefHeight="483.0" prefWidth="499.0">
+                        <FlowPane fx:id="recipeListFlowPane" prefHeight="483.0" prefWidth="499.0">
                            <children>
                               <ImageView fx:id="recipeImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="recipeLabel" prefWidth="96.0" text="%key.unspecified" />
+                              <Label fx:id="recipeLabel" prefWidth="96.0" text="" />
                            </children>
                         </FlowPane>
                      </content>
