@@ -82,11 +82,9 @@ public class RecipeBackendController {
         }
     }
     public void setMaxTime(int maxTime){
-        if(maxTime % 10 == 0 & maxTime <= 150 & maxTime >= 10) {
-            this.maxTime = maxTime;
-        } else {
-            this.maxTime = 0;
-        }
+        this.maxTime = (Math.round(maxTime / 10) * 10);
     }
+
+
 }
 

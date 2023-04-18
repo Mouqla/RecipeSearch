@@ -16,7 +16,7 @@ public class RecipeListItem extends AnchorPane {
 
     @FXML private AnchorPane anchorPane;
     @FXML private ImageView recipeImage; //stekt ägg
-    @FXML private Label itemLabel;
+    @FXML private Label recipeLabel;
 
 
     public RecipeListItem(Recipe recipe, RecipeSearchController recipeSearchController){
@@ -40,6 +40,11 @@ public class RecipeListItem extends AnchorPane {
             throw new RuntimeException();
         }
 
-        this.itemLabel.setText(recipe.getName());
+        this.recipeLabel.setText(recipe.getName());
     }
+    @FXML
+    protected void onClick(Event event){
+        parentController.openRecipeView(recipe);
+    }
+
 }

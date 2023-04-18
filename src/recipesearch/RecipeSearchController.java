@@ -28,7 +28,7 @@ public class RecipeSearchController implements Initializable {
     @FXML private Slider maxTime;
     @FXML private FlowPane recipeListFlowPane;
     @FXML private AnchorPane searchVyn;
-    @FXML private AnchorPane detaljVyn;
+    @FXML private AnchorPane recipeDetailPane;
     @FXML private Label timeLabel;
     @FXML private Label recipeLabel;
     @FXML private ImageView recipeImage;
@@ -170,6 +170,7 @@ public class RecipeSearchController implements Initializable {
                 }
             }
         });
+
     }
 
     private void populateRecipeDetailView(Recipe recipe) {
@@ -181,6 +182,15 @@ public class RecipeSearchController implements Initializable {
         }
     }
 
+    @FXML
+    public void closeRecipeView() {
+        recipeDetailPane.toBack();
+    }
+
+    protected void openRecipeView(Recipe recipe) {
+        populateRecipeDetailView(recipe);
+        recipeDetailPane.toFront();
+    }
 
 
 
