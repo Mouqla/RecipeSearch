@@ -45,6 +45,8 @@ public class RecipeSearchController implements Initializable {
         initSlider();
         populateMainIngredient();
         populateCuisine();
+        populateDifficulty();
+        populateTimeLabel();
 
         for (Recipe recipe : recipeBackendController.getRecipes()) {
             RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
@@ -227,6 +229,42 @@ public class RecipeSearchController implements Initializable {
         };
         mainIngredient.setButtonCell(cellFactory.call(null));
         mainIngredient.setCellFactory(cellFactory);
+    }
+
+    private void populateTimeLabel() {
+        // timeLabel
+        String iconPath = "RecipeSearch/resources/icon_time.png";
+        Image icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+        ImageView iconImageView = new ImageView(icon);
+        iconImageView.setFitHeight(12);
+        iconImageView.setPreserveRatio(true);
+        timeLabel.setGraphic(iconImageView);
+    }
+
+    private void populateDifficulty() {
+        // enkel
+        String iconPathEnkel = "RecipeSearch/resources/icon_difficulty_easy.png";
+        Image iconEnkel = new Image(getClass().getClassLoader().getResourceAsStream(iconPathEnkel));
+        ImageView iconImageViewEnkel = new ImageView(iconEnkel);
+        iconImageViewEnkel.setFitHeight(12);
+        iconImageViewEnkel.setPreserveRatio(true);
+        enkel.setGraphic(iconImageViewEnkel);
+
+        // mellan
+        String iconPathMellan = "RecipeSearch/resources/icon_difficulty_medium.png";
+        Image iconMellan = new Image(getClass().getClassLoader().getResourceAsStream(iconPathMellan));
+        ImageView iconImageViewMellan = new ImageView(iconMellan);
+        iconImageViewMellan.setFitHeight(12);
+        iconImageViewMellan.setPreserveRatio(true);
+        mellan.setGraphic(iconImageViewMellan);
+
+        // hard
+        String iconPathHard = "RecipeSearch/resources/icon_difficulty_hard.png";
+        Image iconHard = new Image(getClass().getClassLoader().getResourceAsStream(iconPathHard));
+        ImageView iconImageViewHard = new ImageView(iconHard);
+        iconImageViewHard.setFitHeight(12);
+        iconImageViewHard.setPreserveRatio(true);
+        hard.setGraphic(iconImageViewHard);
     }
 
     private void populateCuisine() {
