@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
-
+import java.lang.*;
 import java.io.IOException;
 
 public class RecipeListItem extends AnchorPane {
@@ -41,12 +41,18 @@ public class RecipeListItem extends AnchorPane {
 
 
         try{
-            this.recipeImage.setImage(recipe.getFXImage());
+            this.recipeImage.setImage(parentController.getSquareImage(recipe.getFXImage()));
+            this.recipeLabel.setText(recipe.getName());
+            this.itemDescribtion.setText(recipe.getDescription());
+            this.itemTime.setText(Integer.toString(recipe.getTime()) + " minuter");
+            this.itemPrice.setText(Integer.toString(recipe.getPrice()) + " kr");
+            this.itemMainIngredient.setImage(parentController.getMainIngredientImage(recipe.getMainIngredient()));
+            this.itemDifficulty.setImage(parentController.getDifficultyImage(recipe.getDifficulty()));
+            this.itemCuisine.setImage(parentController.getCuisineImage(recipe.getCuisine()));
         }catch (Exception exc){
             throw new RuntimeException();
         }
 
-        this.recipeLabel.setText(recipe.getName());
     }
     @FXML
     protected void onClick(Event event){

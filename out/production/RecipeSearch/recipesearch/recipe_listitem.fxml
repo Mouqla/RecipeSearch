@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,6 +13,15 @@
             <Image url="@../../recipes/recipe1.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="recipeLabel" layoutX="205.0" layoutY="34.0" styleClass="text-larger" text="Stekt Ägg" />
+      <Label fx:id="recipeLabel" layoutX="150.0" layoutY="14.0" styleClass="text-larger" text="Stekt Ägg" AnchorPane.leftAnchor="160.0" />
+      <ImageView fx:id="itemMainIngredient" fitHeight="20.0" fitWidth="20.0" layoutX="150.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="160.0" />
+      <ImageView fx:id="itemDifficulty" fitHeight="20.0" fitWidth="39.0" layoutX="183.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="193.0">
+         <viewport>
+            <Rectangle2D height="20.0" minY="20.0" />
+         </viewport></ImageView>
+      <Label fx:id="itemTime" layoutX="245.0" layoutY="33.0" styleClass="text-normal" text="Label" AnchorPane.leftAnchor="255.0" />
+      <Label fx:id="itemPrice" layoutX="322.0" layoutY="33.0" styleClass="text-normal" text="Label" AnchorPane.leftAnchor="332.0" />
+      <Label fx:id="itemDescribtion" layoutX="150.0" layoutY="62.0" prefHeight="84.0" prefWidth="295.0" styleClass="text-normal" text="Label" wrapText="true" AnchorPane.leftAnchor="160.0" />
+      <ImageView fx:id="itemCuisine" fitHeight="32.0" fitWidth="39.0" layoutX="111.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="355.0" />
    </children>
 </fx:root>

@@ -63,8 +63,8 @@ public class RecipeBackendController {
             default:
                 this.difficulty = null;
                 break;
-            case "Enkel":
-                this.difficulty = "Enkel";
+            case "Lätt":
+                this.difficulty = "Lätt";
                 break;
             case "Mellan":
                 this.difficulty = "Mellan";

@@ -329,7 +329,114 @@ public class RecipeSearchController implements Initializable {
         cuisine.setCellFactory(cellFactory);
     }
 
-    private void populateRecipeDetailView(Recipe recipe) {
+    public Image getSquareImage(Image image){
+
+        int x = 0;
+        int y = 0;
+        int width = 0;
+        int height = 0;
+
+        if(image.getWidth() > image.getHeight()){
+            width = (int) image.getHeight();
+            height = (int) image.getHeight();
+            x = (int)(image.getWidth() - width)/2;
+            y = 0;
+        }
+
+        else if(image.getHeight() > image.getWidth()){
+            width = (int) image.getWidth();
+            height = (int) image.getWidth();
+            x = 0;
+            y = (int) (image.getHeight() - height)/2;
+        }
+
+        else{
+            //Width equals Height, return original image
+            return image;
+        }
+        return new WritableImage(image.getPixelReader(), x, y, width, height);
+    }
+
+    public Image getCuisineImage(String cuisine) {
+        String iconPath;
+        Image icon = null;
+        switch (cuisine) {
+
+            case "Sverige":
+                iconPath = "RecipeSearch/resources/icon_flag_sweden.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Grekland":
+                iconPath = "RecipeSearch/resources/icon_flag_greece.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Indien":
+                iconPath = "RecipeSearch/resources/icon_flag_india.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Asien":
+                iconPath = "RecipeSearch/resources/icon_flag_asia.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Afrika":
+                iconPath = "RecipeSearch/resources/icon_flag_africa.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Frankrike":
+                iconPath = "RecipeSearch/resources/icon_flag_france.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+        }
+        return icon;
+    }
+
+    public Image getMainIngredientImage(String mainIngredient) {
+        String iconPath;
+        Image icon = null;
+        switch (mainIngredient) {
+
+            case "Kött":
+                iconPath = "RecipeSearch/resources/icon_main_meat.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Fisk":
+                iconPath = "RecipeSearch/resources/icon_main_fish.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Kyckling":
+                iconPath = "RecipeSearch/resources/icon_main_chicken.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Vegetarisk":
+                iconPath = "RecipeSearch/resources/icon_main_veg.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+        }
+        return icon;
+    }
+
+    public Image getDifficultyImage(String difficulty) {
+        String iconPath;
+        Image icon = null;
+        switch (difficulty) {
+
+            case "Lätt":
+                iconPath = "RecipeSearch/resources/icon_difficulty_easy.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Mellan":
+                iconPath = "RecipeSearch/resources/icon_difficulty_medium.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+            case "Svår":
+                iconPath = "RecipeSearch/resources/icon_difficulty_hard.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                break;
+        }
+        return icon;
+    }
+
+        private void populateRecipeDetailView(Recipe recipe) {
         try {
             recipeLabel.setText(recipe.getName());
             recipeImage.setImage(recipe.getFXImage());
