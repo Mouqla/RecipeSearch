@@ -22,6 +22,6 @@
       <Label fx:id="itemTime" layoutX="245.0" layoutY="33.0" styleClass="text-normal" text="Label" AnchorPane.leftAnchor="255.0" />
       <Label fx:id="itemPrice" layoutX="322.0" layoutY="33.0" styleClass="text-normal" text="Label" AnchorPane.leftAnchor="332.0" />
       <Label fx:id="itemDescribtion" layoutX="150.0" layoutY="62.0" prefHeight="84.0" prefWidth="295.0" styleClass="text-normal" text="Label" wrapText="true" AnchorPane.leftAnchor="160.0" />
-      <ImageView fx:id="itemCuisine" fitHeight="32.0" fitWidth="39.0" layoutX="111.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="355.0" />
+      <ImageView fx:id="itemCuisine" fitHeight="32.0" fitWidth="39.0" layoutX="111.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" />
    </children>
 </fx:root>

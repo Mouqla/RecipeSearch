@@ -74,10 +74,10 @@
                                 <Label id="logo-twirl" layoutX="194.0" layoutY="38.0" rotate="-20.0" styleClass="text-logoTwirl" text="Sök" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="532.0" prefWidth="535.0">
+                        <AnchorPane fx:id="itemVyn" prefHeight="532.0" prefWidth="535.0">
                             <children>
 
-                                <ScrollPane layoutX="8.0" layoutY="7.0" prefHeight="487.0" prefWidth="500.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                <ScrollPane layoutX="8.0" layoutY="7.0" prefHeight="487.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <content>
                                         <FlowPane fx:id="recipeListFlowPane" />
                                     </content>

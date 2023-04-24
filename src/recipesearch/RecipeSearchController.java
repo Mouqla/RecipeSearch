@@ -11,6 +11,7 @@ import javafx.scene.layout.*;
 import javafx.scene.image.*;
 import se.chalmers.ait.dat215.lab2.*;
 import javafx.util.Callback;
+import javafx.scene.Node;
 import recipesearch.RecipeBackendController;
 
 public class RecipeSearchController implements Initializable {
@@ -29,7 +30,7 @@ public class RecipeSearchController implements Initializable {
     @FXML private Spinner<Integer> maxPrice;
     @FXML private Slider maxTime;
     @FXML private FlowPane recipeListFlowPane;
-    @FXML private AnchorPane searchVyn;
+    @FXML private AnchorPane itemVyn;
     @FXML private AnchorPane recipeDetailPane;
     @FXML private Label timeLabel;
     @FXML private Label recipeLabel;
@@ -62,6 +63,9 @@ public class RecipeSearchController implements Initializable {
             RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
             recipeListItemMap.put(recipe.getName(), recipeListItem);
         }
+        itemVyn.widthProperty().addListener((observable, oldValue, newValue) -> {
+            setPrefWidthOfAllChildren(recipeListFlowPane, itemVyn.getWidth() - 15);
+        });
 
         updateRecipeList();
     }
@@ -69,8 +73,21 @@ public class RecipeSearchController implements Initializable {
     private void updateRecipeList() {
         recipeListFlowPane.getChildren().clear();
         List<Recipe> recipes = recipeBackendController.getRecipes();
+
+        double itemWidth = itemVyn.getWidth();
+
         for (int i = 0; i < recipes.size(); i++) {
-            recipeListFlowPane.getChildren().add(recipeListItemMap.get(recipes.get(i).getName()));
+            RecipeListItem recipeListItem = recipeListItemMap.get(recipes.get(i).getName());
+            recipeListItem.setPrefWidth(itemWidth - 15);
+            recipeListFlowPane.getChildren().add(recipeListItem);
+        }
+    }
+
+    private void setPrefWidthOfAllChildren(FlowPane flowPane, double prefWidth) {
+        for (Node child : flowPane.getChildren()) {
+            if (child instanceof Region) { // This checks if the child is an instance of Region which includes Panes, Labels, etc.
+                ((Region) child).setPrefWidth(prefWidth);
+            }
         }
     }
 
@@ -456,7 +473,7 @@ public class RecipeSearchController implements Initializable {
             itemMainIngredient.setImage(getMainIngredientImage(recipe.getMainIngredient()));
             itemDifficulty.setImage(getDifficultyImage(recipe.getDifficulty()));
             itemCuisine.setImage(getCuisineImage(recipe.getCuisine()));
-            detaljVynIngredienser.setText("Welcome");
+            detaljVynIngredienser.setText(getJoinedIngredients());
             detaljVynTillagning.setText(recipe.getInstruction());
         } catch (Exception exc) {
             throw new RuntimeException();
@@ -465,8 +482,12 @@ public class RecipeSearchController implements Initializable {
 
     private String getJoinedIngredients(){
         List<String> stringList = new ArrayList<>();
-        for ( Ingredient ingredient: recipe.getIngredients()) {
-            stringList.add(ingredient.toString());
+        if( recipe != null ) {
+            for ( Ingredient ingredient: recipe.getIngredients()) {
+                stringList.add(ingredient.toString());
+            }
+        } else {
+            System.out.println("recipe is null");
         }
         return String.join("\n", stringList);
     }
