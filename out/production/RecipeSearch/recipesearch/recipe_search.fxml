@@ -48,8 +48,8 @@
                                 <Label layoutX="27.0" layoutY="278.0" styleClass="text-normal" text="Svårighetsgrad:" />
                                 <Label fx:id="priceLabel" layoutX="231.0" layoutY="390.0" styleClass="text-smaller" text="Kr" />
                                 <Label layoutX="72.0" layoutY="427.0" styleClass="text-normal" text="Maxtid:" />
-                                <ComboBox fx:id="cuisine" layoutX="121.0" layoutY="228.0" prefWidth="150.0" styleClass="text-smaller" />
-                                <ComboBox fx:id="mainIngredient" layoutX="121.0" layoutY="188.0" prefWidth="150.0" styleClass="text-smaller" />
+                                <ComboBox fx:id="cuisine" layoutX="121.0" layoutY="230.0" prefWidth="150.0" styleClass="text-smaller" />
+                                <ComboBox fx:id="mainIngredient" layoutX="121.0" layoutY="189.0" prefWidth="150.0" styleClass="text-smaller" />
                                 <RadioButton fx:id="enkel" layoutX="121.0" layoutY="302.0" mnemonicParsing="false" styleClass="text-smaller" text="Lätt" />
                                 <RadioButton fx:id="mellan" layoutX="121.0" layoutY="327.0" mnemonicParsing="false" styleClass="text-smaller" text="Mellan" />
                                 <RadioButton fx:id="hard" layoutX="121.0" layoutY="352.0" mnemonicParsing="false" styleClass="text-smaller" text="Svår" />

@@ -28,3 +28,15 @@
     -fx-font-family: "SignPainter";
     -fx-text-fill: #FFAC33;
 }
+.recipe-list-item{
+    -fx-border-width: 1px;
+    -fx-border-color:#999999;
+    -fx-border-radius: 1px;
+    -fx-background-radius: 1px;
+
+}
+.recipe-list-item: hover{
+    -fx-background-color: #FCFCFC;
+    -fx-cursor: hand;
+}
+
