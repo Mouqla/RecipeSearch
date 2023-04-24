@@ -5,10 +5,13 @@ import java.net.URL;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import java.util.*;
+
+import javafx.event.Event;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.image.*;
+import javafx.scene.*;
 import se.chalmers.ait.dat215.lab2.*;
 import javafx.util.Callback;
 import javafx.scene.Node;
@@ -44,6 +47,7 @@ public class RecipeSearchController implements Initializable {
     @FXML private ImageView itemCuisine;
     @FXML private ImageView itemMainIngredient;
     @FXML private ImageView itemDifficulty;
+    @FXML private ImageView closeRecipeImageView;
 
 
     @Override
@@ -501,7 +505,26 @@ public class RecipeSearchController implements Initializable {
         populateRecipeDetailView(recipe);
         recipeDetailPane.toFront();
     }
+    @FXML
+    public void closeButtonMouseEntered(){
+        String imagePath = "RecipeSearch/resources/icon_close_hover.png";
+        closeRecipeImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(imagePath)));
+    }
 
+    @FXML
+    public void closeButtonMousePressed(){
+        String imagePath = "RecipeSearch/resources/icon_close_pressed.png";
+        closeRecipeImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(imagePath)));
+    }
 
+    @FXML
+    public void closeButtonMouseExited(){
+        String imagePath = "RecipeSearch/resources/icon_close.png";
+        closeRecipeImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(imagePath)));
+    }
 
+    @FXML
+    public void mouseTrap(Event event){
+        event.consume();
+    }
 }
