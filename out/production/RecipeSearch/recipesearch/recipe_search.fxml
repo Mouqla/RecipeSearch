@@ -8,23 +8,39 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="500.0" maxWidth="800.0" minHeight="500.0" minWidth="800.0" prefHeight="500.0" prefWidth="800.0" stylesheets="@recipe_search.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
     <children>
         <StackPane layoutX="-1.0" prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
             <children>
-                <AnchorPane fx:id="recipeDetailPane" prefHeight="200.0" prefWidth="200.0">
+                <AnchorPane fx:id="recipeDetailPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0, 0.75);">
                     <children>
-                        <AnchorPane layoutX="-3.0" prefHeight="486.0" prefWidth="794.0" style="-fx-background-color: #F1EFFF;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+                        <AnchorPane layoutX="42.0" layoutY="50.0" prefHeight="394.0" prefWidth="723.0" styleClass="root" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="50.0">
                             <children>
+                        <Label fx:id="itemDescribtion" layoutX="231.0" layoutY="100.0" prefHeight="77.0" prefWidth="417.0" text="Label" wrapText="true" />
+                        <TextArea fx:id="detaljVynIngredienser" layoutX="14.0" layoutY="200.0" prefHeight="200.0" prefWidth="219.0" text="&#10;" wrapText="true" />
+                        <Label layoutX="231.0" layoutY="180.0" text="Tillagning" wrapText="true">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="detaljVynTillagning" editable="false" layoutX="231.0" layoutY="200.0" prefHeight="167.0" prefWidth="482.0" wrapText="true" />
+                                <Label fx:id="itemTime" layoutX="400.0" layoutY="61.0" prefHeight="36.0" prefWidth="66.0" text="Label" wrapText="true" />
                                 <Label fx:id="recipeLabel" layoutX="231.0" layoutY="41.0" styleClass="text-even-larger" text="Label" AnchorPane.topAnchor="20.0" />
                                 <ImageView fx:id="recipeImage" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="itemCuisine" fitHeight="52.0" fitWidth="66.0" layoutX="150.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
                                 <Button fx:id="closeButton" layoutX="672.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeRecipeView" text="Stäng" />
+                        <Label fx:id="itemPrice" layoutX="500.0" layoutY="61.0" prefHeight="36.0" prefWidth="73.0" text="Label" />
+                        <ImageView fx:id="itemMainIngredient" fitHeight="44.0" fitWidth="51.0" layoutX="231.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="itemDifficulty" fitHeight="36.0" fitWidth="66.0" layoutX="300.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="12.0" layoutY="190.0" text="Ingredienser" wrapText="true" />
                             </children>
                         </AnchorPane>
                     </children>
@@ -58,7 +74,7 @@
                                 <Label id="logo-twirl" layoutX="194.0" layoutY="38.0" rotate="-20.0" styleClass="text-logoTwirl" text="Sök" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="532.0" prefWidth="535.0" style="-fx-background-color: #FF0000;">
+                        <AnchorPane prefHeight="532.0" prefWidth="535.0">
                             <children>
 
                                 <ScrollPane layoutX="8.0" layoutY="7.0" prefHeight="487.0" prefWidth="500.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">

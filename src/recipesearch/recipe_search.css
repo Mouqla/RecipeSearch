@@ -39,4 +39,12 @@
     -fx-background-color: #FCFCFC;
     -fx-cursor: hand;
 }
-
+.text-area .content{
+    -fx-background-color: -fx-background;
+}
+.text-area{
+    -fx-background-color: -fx-background;
+}
+.root{
+    -fx-background-color: <color>;
+}

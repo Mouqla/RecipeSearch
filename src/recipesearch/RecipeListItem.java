@@ -15,7 +15,7 @@ public class RecipeListItem extends AnchorPane {
     private Recipe recipe;
 
     @FXML private AnchorPane anchorPane;
-    @FXML private ImageView recipeImage; //stekt ägg
+    @FXML private ImageView recipeImage;
     @FXML private Label recipeLabel;
     @FXML private Label itemDescribtion;
     @FXML private Label itemTime;

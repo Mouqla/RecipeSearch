@@ -18,6 +18,7 @@ public class RecipeSearchController implements Initializable {
     private RecipeBackendController recipeBackendController;
     private Map<String, RecipeListItem> recipeListItemMap = new HashMap<String, RecipeListItem>();
     private List<Recipe> recipes;
+    private Recipe recipe;
 
     @FXML private ComboBox<String> mainIngredient;
     @FXML private ComboBox<String> cuisine;
@@ -34,6 +35,15 @@ public class RecipeSearchController implements Initializable {
     @FXML private Label recipeLabel;
     @FXML private ImageView recipeImage;
     @FXML private ToggleGroup difficultyToggleGroup;
+    @FXML private TextArea detaljVynTillagning;
+    @FXML private TextArea detaljVynIngredienser;
+    @FXML private Label itemDescribtion;
+    @FXML private Label itemTime;
+    @FXML private Label itemPrice;
+    @FXML private ImageView itemCuisine;
+    @FXML private ImageView itemMainIngredient;
+    @FXML private ImageView itemDifficulty;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -440,9 +450,25 @@ public class RecipeSearchController implements Initializable {
         try {
             recipeLabel.setText(recipe.getName());
             recipeImage.setImage(recipe.getFXImage());
+            itemDescribtion.setText(recipe.getDescription());
+            itemTime.setText(Integer.toString(recipe.getTime()) + " minuter");
+            itemPrice.setText(Integer.toString(recipe.getPrice()) + " kr");
+            itemMainIngredient.setImage(getMainIngredientImage(recipe.getMainIngredient()));
+            itemDifficulty.setImage(getDifficultyImage(recipe.getDifficulty()));
+            itemCuisine.setImage(getCuisineImage(recipe.getCuisine()));
+            detaljVynIngredienser.setText("Welcome");
+            detaljVynTillagning.setText(recipe.getInstruction());
         } catch (Exception exc) {
             throw new RuntimeException();
         }
+    }
+
+    private String getJoinedIngredients(){
+        List<String> stringList = new ArrayList<>();
+        for ( Ingredient ingredient: recipe.getIngredients()) {
+            stringList.add(ingredient.toString());
+        }
+        return String.join("\n", stringList);
     }
 
     @FXML
