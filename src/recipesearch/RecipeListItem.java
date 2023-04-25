@@ -4,6 +4,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
@@ -52,6 +53,13 @@ public class RecipeListItem extends AnchorPane {
         }catch (Exception exc){
             throw new RuntimeException();
         }
+
+        String iconPath = "RecipeSearch/resources/icon_time.png";
+        Image icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+        ImageView iconImageView = new ImageView(icon);
+        iconImageView.setFitHeight(12);
+        iconImageView.setPreserveRatio(true);
+        itemTime.setGraphic(iconImageView);
 
     }
     @FXML

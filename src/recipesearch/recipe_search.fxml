@@ -21,29 +21,33 @@
             <children>
                 <AnchorPane fx:id="recipeDetailPane" onMouseClicked="#closeRecipeView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0, 0.75);">
                     <children>
-                        <AnchorPane layoutX="42.0" layoutY="50.0" onMouseClicked="#mouseTrap" prefHeight="394.0" prefWidth="723.0" styleClass="root" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="50.0">
+                        <AnchorPane layoutX="42.0" layoutY="50.0" onMouseClicked="#mouseTrap" prefHeight="394.0" prefWidth="723.0" styleClass="root" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="60.0">
                             <children>
                         <Label fx:id="itemDescribtion" layoutX="231.0" layoutY="100.0" prefHeight="77.0" prefWidth="417.0" text="Label" wrapText="true" />
-                        <TextArea fx:id="detaljVynIngredienser" layoutX="14.0" layoutY="200.0" prefHeight="200.0" prefWidth="219.0" text="&#10;" wrapText="true" />
-                        <Label layoutX="231.0" layoutY="180.0" text="Tillagning" wrapText="true">
+                        <TextArea fx:id="detaljVynIngredienser" editable="false" layoutX="14.0" layoutY="222.0" prefHeight="178.0" prefWidth="219.0" text="&#10;" wrapText="true" AnchorPane.leftAnchor="15.0" />
+                        <Label layoutX="231.0" layoutY="180.0" text="Tillagning:" wrapText="true">
                            <font>
-                              <Font size="15.0" />
+                              <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
                         <TextArea fx:id="detaljVynTillagning" editable="false" layoutX="223.0" layoutY="200.0" prefHeight="167.0" prefWidth="490.0" wrapText="true" />
-                                <Label fx:id="itemTime" layoutX="400.0" layoutY="61.0" prefHeight="36.0" prefWidth="66.0" text="Label" wrapText="true" />
+                                <Label fx:id="itemTime" layoutX="400.0" layoutY="61.0" prefHeight="36.0" prefWidth="89.0" text="Label" wrapText="true" />
                                 <Label fx:id="recipeLabel" layoutX="231.0" layoutY="41.0" styleClass="text-even-larger" text="Label" AnchorPane.topAnchor="20.0" />
-                                <ImageView fx:id="recipeImage" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="itemCuisine" fitHeight="52.0" fitWidth="66.0" layoutX="150.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="closeRecipeImageView" fitHeight="26.0" fitWidth="30.0" layoutX="686.0" layoutY="14.0" onMouseClicked="#closeRecipeView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="recipeImage" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" />
+                        <ImageView fx:id="itemCuisine" fitHeight="52.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="113.0" />
+                        <ImageView fx:id="closeRecipeImageView" fitHeight="26.0" fitWidth="30.0" layoutX="686.0" layoutY="14.0" onMouseClicked="#closeRecipeView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <image>
                               <Image url="@resources/icon_close.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="itemPrice" layoutX="500.0" layoutY="61.0" prefHeight="36.0" prefWidth="73.0" text="Label" />
+                        <Label fx:id="servingsLabel" layoutY="198.0" prefHeight="19.0" prefWidth="140.0" text="Label" AnchorPane.leftAnchor="15.0" />
                         <ImageView fx:id="itemMainIngredient" fitHeight="44.0" fitWidth="51.0" layoutX="231.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="itemDifficulty" fitHeight="36.0" fitWidth="66.0" layoutX="300.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label layoutX="12.0" layoutY="190.0" text="Ingredienser" wrapText="true" />
+                        <Label layoutX="12.0" layoutY="181.0" prefHeight="14.0" prefWidth="86.0" text="Ingredienser:" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
                             </children>
                         </AnchorPane>
                     </children>
@@ -63,7 +67,7 @@
                                 <RadioButton fx:id="alla" layoutX="121.0" layoutY="278.0" mnemonicParsing="false" styleClass="text-smaller" text="Alla" />
                                 <Label layoutX="67.0" layoutY="390.0" text="Maxpris:" />
                                 <Label fx:id="timeLabel" layoutX="189.0" layoutY="453.0" styleClass="text-smaller" text="20 minuter" />
-                                <Label layoutX="92.0" layoutY="232.0" prefWidth="30.0" styleClass="text-normal" text="Kök:" />
+                                <Label layoutX="91.0" layoutY="233.0" prefWidth="30.0" styleClass="text-normal" text="Kök:" />
                                 <Label layoutX="27.0" layoutY="278.0" styleClass="text-normal" text="Svårighetsgrad:" />
                                 <Label fx:id="priceLabel" layoutX="231.0" layoutY="390.0" styleClass="text-smaller" text="Kr" />
                                 <Label layoutX="72.0" layoutY="427.0" styleClass="text-normal" text="Maxtid:" />

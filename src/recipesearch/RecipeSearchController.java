@@ -44,6 +44,7 @@ public class RecipeSearchController implements Initializable {
     @FXML private Label itemDescribtion;
     @FXML private Label itemTime;
     @FXML private Label itemPrice;
+    @FXML private Label servingsLabel;
     @FXML private ImageView itemCuisine;
     @FXML private ImageView itemMainIngredient;
     @FXML private ImageView itemDifficulty;
@@ -62,6 +63,7 @@ public class RecipeSearchController implements Initializable {
         populateCuisine();
         populateDifficulty();
         populateTimeLabel();
+        populateDetaljTimeLabel();
 
         for (Recipe recipe : recipeBackendController.getRecipes()) {
             RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
@@ -272,6 +274,16 @@ public class RecipeSearchController implements Initializable {
         timeLabel.setGraphic(iconImageView);
     }
 
+    private void populateDetaljTimeLabel() {
+        // timeLabel
+        String iconPath = "RecipeSearch/resources/icon_time.png";
+        Image icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+        ImageView iconImageView = new ImageView(icon);
+        iconImageView.setFitHeight(12);
+        iconImageView.setPreserveRatio(true);
+        itemTime.setGraphic(iconImageView);
+    }
+
     private void populateDifficulty() {
         // enkel
         String iconPathEnkel = "RecipeSearch/resources/icon_difficulty_easy.png";
@@ -477,14 +489,15 @@ public class RecipeSearchController implements Initializable {
             itemMainIngredient.setImage(getMainIngredientImage(recipe.getMainIngredient()));
             itemDifficulty.setImage(getDifficultyImage(recipe.getDifficulty()));
             itemCuisine.setImage(getCuisineImage(recipe.getCuisine()));
-            detaljVynIngredienser.setText(getJoinedIngredients());
+            servingsLabel.setText(Integer.toString(recipe.getServings()) + " portioner");
+            detaljVynIngredienser.setText(getJoinedIngredients(recipe));
             detaljVynTillagning.setText(recipe.getInstruction());
         } catch (Exception exc) {
             throw new RuntimeException();
         }
     }
 
-    private String getJoinedIngredients(){
+    private String getJoinedIngredients(Recipe recipe){
         List<String> stringList = new ArrayList<>();
         if( recipe != null ) {
             for ( Ingredient ingredient: recipe.getIngredients()) {
